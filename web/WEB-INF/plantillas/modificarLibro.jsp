@@ -32,7 +32,7 @@
 
         <div class="form-group row">
             <p class="col-lg-2 control-label" value="Selects">Selects</p>
-            <div class="col-lg-8" >
+            <div class="col-lg-8 radio-menu-item" >
                 <s:select class="form-control" list="#{'Action':'Action','Aventuras':'Aventuras','Biografia':'Biografia','Ciencia':'Ciencia',
                 'Ciencia Ficcion':'Ciencia Ficcion','Cine':'Cine','Economia':'Economia'}" name="libroActual.tema"></s:select>
             </div>
@@ -60,9 +60,8 @@
                 </div>
             </div>
         </div>
-    <s:hidden name="titulo"></s:hidden>
-    <s:submit class="btn btn-default" value="Guardar"></s:submit>
+        <s:hidden name="titulo"></s:hidden>
+        <s:submit class="btn btn-default" value="Guardar"></s:submit>
     </div>
 
 </s:form>
-

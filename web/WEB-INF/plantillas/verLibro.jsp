@@ -5,15 +5,15 @@
 <div class="container text-center">
 
     <div class="form-group row">
-        <p class="col-lg-2 control-label">Titulo</p>
-        <div class="col-lg-8">
-            <s:textfield class="form-control" name="libroActual.titulo"></s:textfield>
+        <p class="col-lg-2 control-label">Titulo:</p>
+        <div class="col-lg-1">
+            <s:label name="libroActual.titulo"></s:label>
         </div>
     </div>
     <div class="form-group row">
-        <p class="col-lg-2 control-label">Autor</p>
-        <div class="col-lg-8">
-            <s:textfield class="form-control" name="libroActual.autor"></s:textfield>
+        <p class="col-lg-2 control-label">Autor:</p>
+        <div class="col-lg-1">
+            <s:label  name="libroActual.autor"></s:label>
         </div>
     </div>
 
@@ -21,8 +21,8 @@
         <p class="col-lg-2 control-label">Estado</p>
         <div class="col-lg-8 text-left">
 
-            <div class="radio">
-                <s:radio list="#{'Novedad':'novedad','Reedicion':'Reedicion'}" name="libroActual.estado"></s:radio>
+            <div class="radio-menu-item">
+                <s:radio  list="#{'Novedad':'novedad','Reedicion':'Reedicion'}" name="libroActual.estado" disabled="true"></s:radio>
             </div>
 
         </div>
@@ -32,7 +32,7 @@
         <p class="col-lg-2 control-label" value="Selects">Selects</p>
         <div class="col-lg-8" >
             <s:select class="form-control" list="#{'Action':'Action','Aventuras':'Aventuras','Biografia':'Biografia','Ciencia':'Ciencia',
-                'Ciencia Ficcion':'Ciencia Ficcion','Cine':'Cine','Economia':'Economia'}" name="libroActual.tema"></s:select>
+                'Ciencia Ficcion':'Ciencia Ficcion','Cine':'Cine','Economia':'Economia'}" name="libroActual.tema" disabled="true"></s:select>
         </div>
     </div>
 
@@ -40,21 +40,21 @@
         <p class="col-lg-2 control-label">Nº Paginas</p>
 
         <div class="col-lg-8">
-            <p class="form-control"><s:property value="libroActual.numPaginas"></s:property></p>
+            <p class="form-control" disabled="true"><s:property value="libroActual.numPaginas"></s:property></p>
         </div>
     </div>
 
     <div class="form-group row">
         <p class="col-lg-2 control-label">Formato</p>
-        <div class="col-lg-8 text-left">
+        <div class="col-lg-1 text-left check-menu-item">
             <div class="checkbox">
-                <s:checkbox name="libroActual.rustico"/>Cartone
+                <s:checkbox name="libroActual.rustico" disabled="true"/>Cartone
             </div>
             <div class="checkbox">
-                <s:checkbox name="libroActual.tapaDura"/>Rustico
+                <s:checkbox name="libroActual.tapaDura" disabled="true"/>Rustico
             </div>
             <div class="checkbox">
-                <s:checkbox name="libroActual.cartone"/>Tapa dura
+                <s:checkbox name="libroActual.cartone" disabled="true"/>Tapa dura
             </div>
         </div>
     </div>
