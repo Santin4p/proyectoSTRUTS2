@@ -55,6 +55,7 @@ public class UsuarioAction extends ActionSupport{
     public String deslogear(){
         ActionContext.getContext().getSession().clear();
         return "logearUsuario";
+
     }
 
     public Usuario getUsuarioActual() {
