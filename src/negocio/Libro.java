@@ -22,7 +22,7 @@ public class Libro implements Serializable{
 	protected boolean TapaDura;
 	protected boolean Cartone;
 	protected String estado;
-
+	protected Float precio;
 
 
 	public Libro() {
@@ -54,7 +54,7 @@ public class Libro implements Serializable{
 		Cartone = cartone;
 	}
 
-	public Libro(String titulo, String autor, String tema, int Paginas, boolean f1, boolean f2, boolean f3, String estado){
+	public Libro(String titulo, String autor, String tema, int Paginas, boolean f1, boolean f2, boolean f3, String estado, Float precio){
 		this.titulo=titulo;
 		this.autor=autor;
 		this.tema=tema;
@@ -63,6 +63,7 @@ public class Libro implements Serializable{
 		this.TapaDura =f2;
 		this.Cartone =f3;
 		this.estado=estado;
+		this.precio=precio;
 	}	
 	
 	//GETTERS AND SETTERS----------------------------------------------------
@@ -107,7 +108,15 @@ public class Libro implements Serializable{
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+
+	public Float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Float precio) {
+		this.precio = precio;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		Libro libro=(Libro) obj;

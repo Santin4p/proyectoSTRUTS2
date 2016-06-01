@@ -47,6 +47,14 @@
         </div>
 
         <div class="form-group row">
+            <p class="col-lg-2 control-label">Precio</p>
+
+            <div class="col-lg-8">
+                <s:textfield  class="form-control" type="number" name="libroActual.precio"></s:textfield>
+            </div>
+        </div>
+
+        <div class="form-group row">
             <p class="col-lg-2 control-label">Formato</p>
             <div class="col-lg-8 text-left">
                 <div class="checkbox">
