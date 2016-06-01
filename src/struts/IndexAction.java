@@ -19,7 +19,6 @@ public class IndexAction implements com.opensymphony.xwork2.Action{
     public String execute() throws Exception {
         ControlAccesoLibroDao accesoLibroDao=new ControlAccesoLibroDao();
         listaLibro=accesoLibroDao.obtener();
-
         return SUCCESS;
     }
 

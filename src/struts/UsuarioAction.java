@@ -1,19 +1,20 @@
 package struts;
 
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import comun.Errores;
 import negocio.ControlAccesoUsuarioDao;
 import negocio.Usuario;
 import org.apache.struts2.interceptor.SessionAware;
-
 import java.util.Map;
 
 /**
  * Created by MRCACAMA on 30/05/2016.
  */
-public class UsuarioAction implements SessionAware{
-
+public class UsuarioAction extends ActionSupport{
     Usuario usuarioActual=new Usuario();
     ControlAccesoUsuarioDao controlAccesoUsuarioDao=new ControlAccesoUsuarioDao();
+
 
     public String registrar(){
         usuarioActual=new Usuario();
@@ -40,6 +41,7 @@ public class UsuarioAction implements SessionAware{
         try {
             Usuario usuarioLog=controlAccesoUsuarioDao.buscar(usuarioActual.getUsuario());
             if((usuarioLog.getUsuario().equals(usuarioActual.getUsuario())) && (usuarioLog.getContrasenia().equals(usuarioActual.getContrasenia()))){
+                ActionContext.getContext().getSession().put("usuario",usuarioLog);
                 return "index";
             }else{
                 return "logearUsuario";
@@ -50,6 +52,11 @@ public class UsuarioAction implements SessionAware{
         }
     }
 
+    public String deslogear(){
+        ActionContext.getContext().getSession().clear();
+        return "logearUsuario";
+    }
+
     public Usuario getUsuarioActual() {
         return usuarioActual;
     }
@@ -58,8 +65,5 @@ public class UsuarioAction implements SessionAware{
         this.usuarioActual = usuarioActual;
     }
 
-    @Override
-    public void setSession(Map<String, Object> map) {
 
-    }
 }

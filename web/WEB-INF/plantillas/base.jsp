@@ -1,6 +1,8 @@
+<%@ page import="com.opensymphony.xwork2.ActionContext" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="h" uri="/struts-tags" %>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -29,25 +31,29 @@
                             <li class="divider"></li>
                             <li><s:a action="registrarUsuario">Registrarse</s:a></li>
                             <li class="divider"></li>
-                            <li><s:a action="logearUsuario">Logear</s:a></li>
+                  <% if (ActionContext.getContext().getSession().get("usuario")==null){%>
+                      <li><s:a action="logearUsuario">Logear</s:a></li>
+                      <li class="divider"></li>
+                  <%}else{ %>
+                            <li><s:a action="deslogearUsuario">Deslogear</s:a></li>
                             <li class="divider"></li>
+                 <%    }  %>
+
                             <li><s:a >Entrar</s:a></li>
 
                             <!-- falta hacer donde va la pagina con el boton out -->
                             <li class="divider"></li>
                             <li><s:a>
-                                <span class="glyphicon glyphicon-off"></span>ut
+                                <span class="glyphicon glyphicon-off"></span>
                             </s:a></li>
                         </ul></li>
                 </ul>
-
                 <h:form class="navbar-form navbar-left">
                     <div class="form-group">
                         <s:textfield class="form-control" placeholder="Titulo"></s:textfield>
                         <s:a class="btn btn-default"><span class="glyphicon glyphicon-search"></span></s:a>
                     </div>
                 </h:form>
-
                 <h:form class="navbar-form navbar-right">
                     <s:a class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span></s:a>
                 </h:form>
