@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jdbc-console">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jdbc-console.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

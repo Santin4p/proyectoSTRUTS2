@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="plantilla" template="/WEB-INF/plantillas/base.jsp">
+        <put-attribute name="contenido" value=""/>
+    </definition>
+    <definition name="index" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/index.jsp"/>
+    </definition>
+    <definition name="verLibro" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/verLibro.jsp"/>
+    </definition>
+    <definition name="modificarLibro" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/modificarLibro.jsp"/>
+    </definition>
+    <definition name="nuevoLibro" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/nuevoLibro.jsp"/>
+    </definition>
+
+    <definition name="registrarUsuario" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/registrarUsuario.jsp"/>
+    </definition>
+
+    <definition name="logearUsuario" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/logearUsuario.jsp"/>
+    </definition>
+
+</tiles-definitions>

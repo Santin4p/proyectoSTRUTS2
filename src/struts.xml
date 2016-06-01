@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.ui.theme" value="simple">
+
+    </constant>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false">
+
+    </constant>
+
+    <constant name="struts.devMode" value="true">
+
+    </constant>
+
+    <package namespace="/" extends="struts-default" name="hola">
+
+
+
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"></result-type>
+        </result-types>
+
+
+        <action name="index" class="struts.IndexAction">
+            <result name="success" type="tiles" >
+                index
+            </result>
+        </action>
+
+        <action name="*Libro" class="struts.LibroAction" method="{1}">
+
+            <result name="verLibro" type="tiles" >
+                verLibro
+            </result>
+
+            <result name="nuevoLibro" type="tiles" >
+                nuevoLibro
+            </result>
+
+            <result name="modificarLibro" type="tiles" >
+                modificarLibro
+            </result>
+
+            <result type="redirect" name="index">
+                index.action
+            </result>
+
+        </action>
+
+        <action name="*Usuario" class="struts.UsuarioAction" method="{1}">
+
+            <result name="registrarUsuario" type="tiles" >
+            registrarUsuario
+           </result>
+
+            <result name="logearUsuario" type="tiles" >
+                logearUsuario
+            </result>
+
+            <result type="redirect" name="index">
+                index.action
+            </result>
+
+        </action>
+
+
+    </package>
+
+</struts>

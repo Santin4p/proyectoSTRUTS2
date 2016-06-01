@@ -1,0 +1,32 @@
+@CHARSET "ISO-8859-1";
+
+.container-fluid span {
+	font-size: 21px;
+	padding: 0 0em;
+	margin-left: 0.1em;
+}
+
+.container-fluid {
+	margin: 0 0em;
+	padding: 0 0em;
+}
+
+.navbar-collapse {
+	padding: 0 0em;
+}
+
+.jumbotron {
+	margin-bottom:0px;
+	margin-top: 80px;
+}
+.container{
+	padding-top: 60px;
+}
+
+.table{
+	width: 40%;
+	margin: 5% 30%;
+}
+.table FIRST-CHILD{
+	border-bottom: 1px solid #ccc;
+}
