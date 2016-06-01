@@ -68,6 +68,18 @@
 
         </action>
 
+        <action name="*LineaPedido" class="struts.LineaPedidoAction" method="{1}">
+
+            <result name="verLibro" type="tiles" >
+                verLibro
+            </result>
+
+            <result type="redirect" name="index">
+                index.action
+            </result>
+
+        </action>
+
 
     </package>
 

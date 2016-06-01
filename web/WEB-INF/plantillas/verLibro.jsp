@@ -58,5 +58,20 @@
             </div>
         </div>
     </div>
+
+    <div class="form-group row">
+        <p class="col-lg-2 control-label">Precio</p>
+
+        <div class="col-lg-8">
+            <p class="form-control" disabled="true"><s:property value="libroActual.precio"></s:property></p>
+        </div>
+    </div>
+
     <s:a action="verEditarLibro" class="btn btn-default">Modificar<s:param name="titulo" value="libroActual.titulo"></s:param></s:a>
+
+    <s:form action="addLineaPedido" method="POST">
+        <s:textfield class="form-control" name="cantidad"></s:textfield>
+        <s:hidden name="titulo" value="%{libroActual.titulo}"></s:hidden>
+        <s:submit class="btn btn-default" value="Comprar"></s:submit>
+    </s:form>
 </div>
