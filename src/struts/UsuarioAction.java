@@ -3,11 +3,14 @@ package struts;
 import comun.Errores;
 import negocio.ControlAccesoUsuarioDao;
 import negocio.Usuario;
+import org.apache.struts2.interceptor.SessionAware;
+
+import java.util.Map;
 
 /**
  * Created by MRCACAMA on 30/05/2016.
  */
-public class UsuarioAction {
+public class UsuarioAction implements SessionAware{
 
     Usuario usuarioActual=new Usuario();
     ControlAccesoUsuarioDao controlAccesoUsuarioDao=new ControlAccesoUsuarioDao();
@@ -53,5 +56,10 @@ public class UsuarioAction {
 
     public void setUsuarioActual(Usuario usuarioActual) {
         this.usuarioActual = usuarioActual;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+
     }
 }
