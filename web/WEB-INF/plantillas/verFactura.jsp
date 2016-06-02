@@ -11,13 +11,9 @@
     </tr>
     </thead>
     <tbody>
-    <s:iterator value="lineasCompra">
+    <s:iterator value="listaFacturas">
         <tr class="warning">
-            <s:form action="modificarLineaPedido" method="POST">
-                <td><s:label name="titulo" value="%{producto.titulo}"></s:label></td>
-                <td><s:textfield  type="number" name="cantidad" value="%{cantidad}"></s:textfield></td>
-                <td> <s:submit class="btn btn-default" value="Modificar"></s:submit></td>
-            </s:form>
+                <td><s:label name="numeroFactura" value="%{numeroFactura}"></s:label></td>
         </tr>
     </s:iterator>
     </tbody>

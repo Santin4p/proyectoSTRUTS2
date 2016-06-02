@@ -31,6 +31,8 @@
                             <li class="divider"></li>
                             <li><s:a action="registrarUsuario">Registrarse</s:a></li>
                             <li class="divider"></li>
+                            <li><s:a action="verFactura">Facturas</s:a></li>
+                            <li class="divider"></li>
                   <% if (ActionContext.getContext().getSession().get("usuario")==null){%>
                       <li><s:a action="logearUsuario">Logear</s:a></li>
                       <li class="divider"></li>

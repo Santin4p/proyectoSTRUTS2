@@ -16,7 +16,6 @@ public class LineaCompra {
 		super();
 		this.cantidad = cantidad;
 		this.producto = producto;
-
 	}
 
 	public float total(){
