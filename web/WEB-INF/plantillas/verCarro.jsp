@@ -8,15 +8,17 @@
     <tr class="active">
         <th>Libro</th>
         <th>Cantidad</th>
+        <th>Modificar</th>
     </tr>
     </thead>
     <tbody>
         <s:iterator value="lineasCompra">
             <tr class="warning">
                 <s:form action="modificarLineaPedido" method="POST">
-                    <td><s:label name="titulo" value="%{producto.titulo}"></s:label></td>
+                    <s:hidden name="titulo" value="%{producto.titulo}"></s:hidden>
+                    <td><s:label value="%{producto.titulo}"></s:label></td>
                     <td><s:textfield  type="number" name="cantidad" value="%{cantidad}"></s:textfield></td>
-                    <td> <s:submit class="btn btn-default" value="Modificar"></s:submit></td>
+                    <td><s:submit class="btn btn-primary btn-sm" value="Modificar"></s:submit></td>
                 </s:form>
             </tr>
         </s:iterator>
