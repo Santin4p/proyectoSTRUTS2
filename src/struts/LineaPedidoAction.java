@@ -23,7 +23,8 @@ public class LineaPedidoAction extends ActionSupport {
         LineaCompra lineaCompra=new LineaCompra();
         Libro libro;
         Carro carro;
-
+        ArrayList<LineaCompra>lineas;
+        boolean repetida=false;
         try{
             libro=controlAccesoLibroDao.buscar(titulo);
             libroActual=libro;
@@ -34,7 +35,21 @@ public class LineaPedidoAction extends ActionSupport {
             if(carro==null)
                 carro=new Carro();
 
-            carro.anadirLinea(lineaCompra);
+            lineas=carro.getLineasCompras();
+
+            for (int i = 0; i < lineas.size(); i++) {
+                if(lineas.get(i).getProducto().getTitulo().equals(libro.getTitulo())){
+                    Float cant=lineas.get(i).getCantidad();
+                    lineas.get(i).setCantidad(cant+cantidad);
+                    carro.setLineasCompras(lineas);
+                    repetida=true;
+                }
+
+
+            }
+            if(!repetida) {
+                carro.anadirLinea(lineaCompra);
+            }
             ActionContext.getContext().getSession().put("carro",carro);
 
         }catch(Errores errores) {
@@ -48,19 +63,19 @@ public class LineaPedidoAction extends ActionSupport {
             Carro carro= (Carro) ActionContext.getContext().getSession().get("carro");
             ArrayList<LineaCompra>lineas= carro.getLineasCompras();
 
-            for (LineaCompra linea:lineas) {
-                if(linea.getProducto().getTitulo().equals(libro.getTitulo())) {
+            for (int i = 0; i < lineas.size(); i++) {
+                if(lineas.get(i).getProducto().getTitulo().equals(libro.getTitulo())){
                     if (cantidad == 0) {
-                        lineas.remove(linea);
+                        lineas.remove(lineas.get(i));
                     }else {
-                        linea.setCantidad(cantidad);
+                        lineas.get(i).setCantidad(cantidad);
                     }
                 }
             }
         } catch (Errores errores) {
             errores.printStackTrace();
         }
-        return "verCarro";
+        return "carrito";
     }
 
     /*public String sumar(){
