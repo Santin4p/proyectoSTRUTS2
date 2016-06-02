@@ -98,6 +98,13 @@
 
         </action>
 
+        <action name="*Factura" class="struts.FacturaAction" method="{1}">
+
+            <result type="redirect" name="index">
+                index.action
+            </result>
+
+        </action>
 
     </package>
 

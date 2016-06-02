@@ -48,7 +48,7 @@ public class LineaCompra {
 		return producto;
 	}
 
-	public void setProducto(Libro producto) {
+	public void ponerProducto(Libro producto) {
 		this.producto = producto;
 	}
 

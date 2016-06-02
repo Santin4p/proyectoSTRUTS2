@@ -44,10 +44,9 @@ public class Factura {
         return lineas;
     }
 
-    public void setLineas(List<LineaCompra> lineas) {
+    public void ponerLineas(List<LineaCompra> lineas) {
         this.lineas = lineas;
     }
-
 
     public int getNumeroFactura() {
         return numeroFactura;

@@ -25,5 +25,5 @@
     </tbody>
 </table>
 <s:form action="generarFactura" method="POST">
-    <td><s:submit class="btn btn-primary btn-sm" value="Modificar"></s:submit></td>
+    <s:submit class="btn btn-primary btn-sm" value="Comprar"></s:submit>
 </s:form>
