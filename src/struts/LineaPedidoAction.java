@@ -28,7 +28,8 @@ public class LineaPedidoAction extends ActionSupport {
         try{
             libro=controlAccesoLibroDao.buscar(titulo);
             libroActual=libro;
-            lineaCompra.setProducto(libro);
+            lineaCompra.ponerProducto(libro);
+            lineaCompra.setTituloLibro(titulo);
             lineaCompra.setCantidad(cantidad);
             carro= (Carro) ActionContext.getContext().getSession().get("carro");
 

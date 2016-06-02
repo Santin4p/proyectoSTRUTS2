@@ -38,7 +38,7 @@ public class Errores extends Exception {
 		if(causa.getClass().equals(ArrayIndexOutOfBoundsException.class))
 			return "Excepcion de array con un indice ilegal";
 		
-		return "Error desconocido: "+causa.getMessage();
+		return "Error desconocido: "+causa.getCause();
 	}
 
 }
