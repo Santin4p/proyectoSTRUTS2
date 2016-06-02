@@ -67,11 +67,19 @@
         </div>
     </div>
 
-    <s:a action="verEditarLibro" class="btn btn-default">Modificar<s:param name="titulo" value="libroActual.titulo"></s:param></s:a>
 
-    <s:form action="addLineaPedido" method="POST">
-        <s:textfield class="form-control" name="cantidad"></s:textfield>
-        <s:hidden name="titulo" value="%{libroActual.titulo}"></s:hidden>
-        <s:submit class="btn btn-default" value="Comprar"></s:submit>
-    </s:form>
+
+        <s:form action="addLineaPedido" method="POST">
+        <div class="form-group row">
+            <p class="col-lg-2 control-label">Cantidad</p>
+            <div class="col-lg-8">
+                <p><s:textfield class="form-control" name="cantidad"></s:textfield></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <s:hidden name="titulo" value="%{libroActual.titulo}"></s:hidden>
+            <s:submit class="btn btn-default" value="Comprar"></s:submit>
+        </s:form>
+        <s:a action="verEditarLibro" class="btn btn-default">Modificar<s:param name="titulo" value="libroActual.titulo"></s:param></s:a>
+        </div>
 </div>

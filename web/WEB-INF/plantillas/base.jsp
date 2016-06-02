@@ -55,7 +55,7 @@
                     </div>
                 </h:form>
                 <h:form class="navbar-form navbar-right">
-                    <s:a class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span></s:a>
+                    <s:a action="verCarro" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span></s:a>
                 </h:form>
 
             </div>
