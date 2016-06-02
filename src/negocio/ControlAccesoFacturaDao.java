@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by MRCACAMA on 02/06/2016.
  */
 public class ControlAccesoFacturaDao {
-    private AccesoFacturaDao accesoFacturaDao=new AccesoFacturaDao();
+
     Usuario usuario;
 
     public ControlAccesoFacturaDao(Usuario usuario) {
@@ -17,22 +17,22 @@ public class ControlAccesoFacturaDao {
     }
 
     public boolean insertar(Factura obj) throws Errores {
-        return accesoFacturaDao.insertar(obj);
+        return new AccesoFacturaDao(usuario).insertar(obj);
     }
 
-    public boolean borrar(String nombre) throws Errores {
-        return accesoFacturaDao.borrar(nombre);
-    }
+   // public boolean borrar(String nombre) throws Errores {
+    //     return accesoFacturaDao.borrar(nombre);
+    // }
 
     public Factura buscar(String numero) throws Errores {
-        return accesoFacturaDao.buscar(numero);
+        return new AccesoFacturaDao(usuario).buscar(numero);
     }
 
     public ArrayList<Factura> obtener() throws Errores {
-        return accesoFacturaDao.obtener();
+        return new AccesoFacturaDao(usuario).obtener();
     }
 
-    public boolean modificar(String nombre, Factura obj) throws Errores {
-        return accesoFacturaDao.modificar(nombre,obj);
-    }
+    //public boolean modificar(String nombre, Factura obj) throws Errores {
+   //     return accesoFacturaDao.modificar(nombre,obj);
+    //}
 }

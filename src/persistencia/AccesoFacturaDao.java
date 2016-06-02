@@ -17,7 +17,6 @@ public class AccesoFacturaDao implements IAcceso<Factura> {
     public AccesoFacturaDao(Usuario usuario) {
         this.usuario = usuario;
     }
-    public AccesoFacturaDao(){}
 
     @Override
     public boolean insertar(Factura obj) throws Errores {
