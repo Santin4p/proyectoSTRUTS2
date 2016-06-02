@@ -70,6 +70,7 @@ public class AccesoFacturaDao implements IAcceso<Factura> {
             ArrayList<Factura> ret = new ArrayList<>();
             for (Object object : facturas) {
                 Factura f = (Factura) object;
+                f.ponerLineas(new ArrayList<>());
                 if(f.getIdUsuario() == usuario.getCodigo()){
                     obtenerLineasFactura(db, f);
                     ret.add(f);

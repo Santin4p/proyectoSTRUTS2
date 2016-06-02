@@ -16,9 +16,9 @@ import java.util.Date;
 public class FacturaAction extends ActionSupport {
     ControlAccesoFacturaDao controlAccesoFacturaDao;
     Usuario usuarioActual;
-
-
     ArrayList<Factura> listaFacturas;
+
+
 
     public String generar(){
         usuarioActual=(Usuario) ActionContext.getContext().getSession().get("usuario");
@@ -46,5 +46,12 @@ public class FacturaAction extends ActionSupport {
             errores.printStackTrace();
         }
         return"verFactura";
+    }
+    public ArrayList<Factura> getListaFacturas() {
+        return listaFacturas;
+    }
+
+    public void setListaFacturas(ArrayList<Factura> listaFacturas) {
+        this.listaFacturas = listaFacturas;
     }
 }
