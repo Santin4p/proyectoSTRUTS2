@@ -8,7 +8,7 @@ public class Usuario{
 	
 	@Identificador
 	private String usuario;
-	
+	private int codigo;
 	private String contrasenia;
 	private String nombre;
 	private String apellidos;
@@ -24,7 +24,13 @@ public class Usuario{
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 	}
-	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	public String getUsuario() {
 		return usuario;
 	}

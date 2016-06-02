@@ -150,7 +150,21 @@ public class UtilSql /* extends AccesoBD */{
 	public static final String sqlObtenerTodos(Class<?> clazz){
 		return "SELECT * FROM " + Reflector.getClassShortName(clazz);
 	}
-	
+
+	public static final String sqlBuscarId(Object id, Class<?> clazz){
+		String identificador = Reflector.getIdField(clazz);
+		if(identificador.isEmpty() )
+			throw new RuntimeException("Class not suported: missed @Identificador field");
+		StringBuilder builder = new StringBuilder();
+		builder.append("SELECT * FROM ");
+		builder.append(Reflector.getClassShortName(clazz));
+		builder.append(" WHERE ");
+		builder.append(identificador);
+		builder.append(" = ");
+		builder.append(id instanceof String ? ("'" + id + "'") : id);
+		return builder.toString();
+	}
+
 	/**
 	 * 
 	 * @author Marco A. Fernández Heras
@@ -181,6 +195,7 @@ public class UtilSql /* extends AccesoBD */{
 		 * Get fields from class
 		 * @param clazz
 		 */
+
 		private void getFields(Class<?> clazz) {
 			fields = new HashMap<String, Class<?>>();
 			for(Field field :  clazz.getDeclaredFields()){

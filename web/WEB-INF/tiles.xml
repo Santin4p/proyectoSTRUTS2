@@ -31,4 +31,8 @@
         <put-attribute name="contenido" value="/WEB-INF/plantillas/verCarro.jsp"/>
     </definition>
 
+    <definition name="verFactura" extends="plantilla">
+        <put-attribute name="contenido" value="/WEB-INF/plantillas/verFactura.jsp"/>
+    </definition>
+
 </tiles-definitions>
