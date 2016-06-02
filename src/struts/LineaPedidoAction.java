@@ -17,7 +17,7 @@ public class LineaPedidoAction extends ActionSupport {
     ControlAccesoLibroDao controlAccesoLibroDao=new ControlAccesoLibroDao();
     String titulo;
     int cantidad;
-    LineaCompra lineaActual;
+    Libro libroActual;
 
     public String add(){
         LineaCompra lineaCompra=new LineaCompra();
@@ -26,6 +26,7 @@ public class LineaPedidoAction extends ActionSupport {
 
         try{
             libro=controlAccesoLibroDao.buscar(titulo);
+            libroActual=libro;
             lineaCompra.setProducto(libro);
             lineaCompra.setCantidad(cantidad);
             carro= (Carro) ActionContext.getContext().getSession().get("carro");
@@ -41,8 +42,28 @@ public class LineaPedidoAction extends ActionSupport {
         }
         return "verLibro";
     }
+    public String modificar(){
+        try {
+            Libro libro=controlAccesoLibroDao.buscar(titulo);
+            Carro carro= (Carro) ActionContext.getContext().getSession().get("carro");
+            ArrayList<LineaCompra>lineas= carro.getLineasCompras();
 
-    public String sumar(){
+            for (LineaCompra linea:lineas) {
+                if(linea.getProducto().getTitulo().equals(libro.getTitulo())) {
+                    if (cantidad == 0) {
+                        lineas.remove(linea);
+                    }else {
+                        linea.setCantidad(cantidad);
+                    }
+                }
+            }
+        } catch (Errores errores) {
+            errores.printStackTrace();
+        }
+        return "verCarro";
+    }
+
+    /*public String sumar(){
         Carro carrito=(Carro)ActionContext.getContext().getSession().get("carro");
         ArrayList<LineaCompra> lineasCompras=carrito.getLineasCompras();
         for (LineaCompra linea : lineasCompras) {
@@ -71,10 +92,13 @@ public class LineaPedidoAction extends ActionSupport {
         carrito.setLineasCompras(lineasCompras);
         ActionContext.getContext().getSession().put("carro",carrito);
         return "";
-    }
+    }*/
+
     public String getTitulo() {return titulo;}
     public void setTitulo(String titulo) {this.titulo = titulo;}
     public int getCantidad() {return cantidad;}
     public void setCantidad(int cantidad) {this.cantidad = cantidad;}
+    public Libro getLibroActual() {return libroActual;}
+    public void setLibroActual(Libro libroActual) {this.libroActual = libroActual;}
 
 }
