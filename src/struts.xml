@@ -80,6 +80,18 @@
 
         </action>
 
+        <action name="*Carro" class="struts.CarroAction" method="{1}">
+
+            <result name="verCarro" type="tiles" >
+                verCarro
+            </result>
+
+            <result type="redirect" name="index">
+                index.action
+            </result>
+
+        </action>
+
 
     </package>
 
