@@ -39,7 +39,7 @@ public class UtilSql /* extends AccesoBD */{
 		values.append(" VALUES (");
 		
 		try {
-			Iterator<Entry<String, Method>> it = reflector.getters.entrySet().iterator();
+			Iterator<Entry<String, Method>> it = reflector.setters.entrySet().iterator();
 			while (it.hasNext()) {
 				Entry<String, Method> field = it.next();
 				builder.append(field.getKey());
