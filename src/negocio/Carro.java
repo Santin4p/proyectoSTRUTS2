@@ -40,4 +40,7 @@ public class Carro {
 		return lineasCompras;
 	}
 
+	public void setLineasCompras(ArrayList<LineaCompra> listas){
+		this.lineasCompras=listas;
+	}
 }
