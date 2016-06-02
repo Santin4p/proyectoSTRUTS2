@@ -74,6 +74,10 @@
                 verLibro
             </result>
 
+            <result name="verCarro" type="tiles" >
+                verCarro
+            </result>
+
             <result type="redirect" name="index">
                 index.action
             </result>
