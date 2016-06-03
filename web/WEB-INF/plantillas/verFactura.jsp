@@ -6,14 +6,18 @@
 <table class="table table-striped table-hover ">
     <thead>
     <tr class="active">
-        <th>Libro</th>
-        <th>Cantidad</th>
+        <th>Id Usuario</th>
+        <th>Numero Factura</th>
+        <th>Fecha de la Factura</th>
     </tr>
     </thead>
     <tbody>
     <s:iterator value="listaFacturas">
         <tr class="warning">
+                <td><s:label name="numeroFactura" value="%{idUsuario}"></s:label></td>
                 <td><s:label name="numeroFactura" value="%{numeroFactura}"></s:label></td>
+                <td><s:label name="fecha" value="%{fecha}"></s:label></td>
+                <td><s:a class="btn btn-primary btn-sm">Ver detalle</s:a></td>
         </tr>
     </s:iterator>
     </tbody>

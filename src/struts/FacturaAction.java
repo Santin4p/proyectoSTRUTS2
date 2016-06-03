@@ -47,6 +47,18 @@ public class FacturaAction extends ActionSupport {
         }
         return"verFactura";
     }
+
+    public String borrar(){
+        Usuario user=(Usuario)ActionContext.getContext().getSession().get("usuario");
+        ControlAccesoFacturaDao instancia=new ControlAccesoFacturaDao(user);
+        try {
+            listaFacturas=instancia.obtener();
+        } catch (Errores errores) {
+            errores.printStackTrace();
+        }
+        return"verFactura";
+    }
+
     public ArrayList<Factura> getListaFacturas() {
         return listaFacturas;
     }
