@@ -32,22 +32,14 @@
                             <li><s:a action="registrarUsuario">Registrarse</s:a></li>
                             <li class="divider"></li>
                             <li><s:a action="verFactura">Facturas</s:a></li>
-                            <li class="divider"></li>
+
                   <% if (ActionContext.getContext().getSession().get("usuario")==null){%>
-                      <li><s:a action="logearUsuario">Logear</s:a></li>
+                      <li class="divider"></li>
+                      <li><s:a action="logearUsuario">Entrar</s:a></li>
                       <li class="divider"></li>
                   <%}else{ %>
-                            <li><s:a action="deslogearUsuario">Deslogear</s:a></li>
-                            <li class="divider"></li>
+                            <li><s:a action="deslogearUsuario"><span class="glyphicon glyphicon-off"></span>ut</s:a></li>
                  <%    }  %>
-
-                            <li><s:a >Entrar</s:a></li>
-
-                            <!-- falta hacer donde va la pagina con el boton out -->
-                            <li class="divider"></li>
-                            <li><s:a>
-                                <span class="glyphicon glyphicon-off"></span>
-                            </s:a></li>
                         </ul></li>
                 </ul>
                 <h:form class="navbar-form navbar-left">

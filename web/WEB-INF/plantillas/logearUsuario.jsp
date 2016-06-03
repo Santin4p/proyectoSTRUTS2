@@ -19,6 +19,6 @@
         </div>
         </div>
 
-    <s:submit class="btn btn-default" value="Guardar"></s:submit>
+    <s:submit class="btn btn-default" value="Entrar"></s:submit>
     </div>
 </s:form>

@@ -25,6 +25,16 @@
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"></result-type>
         </result-types>
 
+        <interceptors>
+            <interceptor name="Interceptor"
+                         class="struts.Interceptor"></interceptor>
+
+            <interceptor-stack name="newStack">
+                <interceptor-ref name="Interceptor"/>
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+
+        </interceptors>
 
         <action name="index" class="struts.IndexAction">
             <result name="success" type="tiles" >
@@ -33,6 +43,7 @@
         </action>
 
         <action name="*Libro" class="struts.LibroAction" method="{1}">
+            <interceptor-ref name="newStack"/>
 
             <result name="verLibro" type="tiles" >
                 verLibro
@@ -48,6 +59,10 @@
 
             <result type="redirect" name="index">
                 index.action
+            </result>
+
+            <result name="logearUsuario" type="tiles" >
+                logearUsuario
             </result>
 
         </action>
@@ -66,9 +81,12 @@
                 index.action
             </result>
 
+
         </action>
 
         <action name="*LineaPedido" class="struts.LineaPedidoAction" method="{1}">
+
+            <interceptor-ref name="newStack"/>
 
             <result name="verLibro" type="tiles" >
                 verLibro
@@ -84,9 +102,14 @@
                 index.action
             </result>
 
+            <result name="logearUsuario" type="tiles" >
+                logearUsuario
+            </result>
+
         </action>
 
         <action name="*Carro" class="struts.CarroAction" method="{1}">
+            <interceptor-ref name="newStack"/>
 
             <result name="verCarro" type="tiles" >
                 verCarro
@@ -96,10 +119,14 @@
                 index.action
             </result>
 
+            <result name="logearUsuario" type="tiles" >
+                logearUsuario
+            </result>
+
         </action>
 
         <action name="*Factura" class="struts.FacturaAction" method="{1}">
-
+            <interceptor-ref name="newStack"/>
 
             <result name="verFactura" type="tiles" >
                 verFactura
@@ -111,6 +138,10 @@
 
             <result type="redirect" name="index">
                 index.action
+            </result>
+
+            <result name="logearUsuario" type="tiles" >
+                logearUsuario
             </result>
 
         </action>

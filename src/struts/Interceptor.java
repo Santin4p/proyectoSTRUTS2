@@ -1,5 +1,6 @@
 package struts;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 
 /**
@@ -17,7 +18,12 @@ public class Interceptor implements com.opensymphony.xwork2.interceptor.Intercep
     }
 
     @Override
-    public String intercept(ActionInvocation actionInvocation) throws Exception {
-        return null;
+    public String intercept(ActionInvocation invocation) throws Exception {
+        if( ActionContext.getContext().getSession().get("usuario")!=null){
+            return invocation.invoke();
+        }else{
+            return "logearUsuario";
+        }
+
     }
 }
