@@ -105,6 +105,9 @@
                 verFactura
             </result>
 
+            <result name="detalleFactura" type="tiles" >
+                detalleFactura
+            </result>
 
             <result type="redirect" name="index">
                 index.action
