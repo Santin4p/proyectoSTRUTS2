@@ -5,21 +5,24 @@
 
 <div class="container text-center">
     <div class="form-group row">
-        <p class="col-lg-2 control-label">Usuario</p>
+        <p class="col-lg-2 control-label pull-left">Usuario:</p>
 
-        <div class="col-lg-8">
-            <p class="form-control" disabled="true"><s:property value="usuarioActual.nombre"></s:property></p>
+        <div class="col-lg-2">
+            <p disabled="true"><s:property value="%{usuarioActual.nombre}"></s:property></p>
         </div>
     </div>
 
     <div class="form-group row">
-        <p class="col-lg-2 control-label">Fecha</p>
+        <p class="col-lg-2 control-label pull-left">Fecha:</p>
 
-        <div class="col-lg-8">
-            <p class="form-control" disabled="true"><s:property value="usuarioActual.fecha"></s:property></p>
+        <div class="col-lg-2">
+            <p disabled="true"><s:property value="%{facturaActual.fecha}"></s:property></p>
         </div>
     </div>
 
+    <div class="form-group row">
+        <p class="col-lg-2 control-label">Lineas de la factura:</p>
+    </div>
 
     <table class="table table-striped table-hover ">
 

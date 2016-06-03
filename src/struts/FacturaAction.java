@@ -14,9 +14,12 @@ import java.util.Date;
  * Created by MRCOGUSA on 02/06/2016.
  */
 public class FacturaAction extends ActionSupport {
+
     ControlAccesoFacturaDao controlAccesoFacturaDao;
     Usuario usuarioActual;
     ArrayList<Factura> listaFacturas;
+    Factura facturaActual;
+    String numeroFactura;
 
     public String generar(){
         usuarioActual=(Usuario) ActionContext.getContext().getSession().get("usuario");
@@ -51,7 +54,7 @@ public class FacturaAction extends ActionSupport {
         ControlAccesoFacturaDao instancia=new ControlAccesoFacturaDao(usuarioActual);
 
         try {
-            facturaActual=instancia.buscar("codigo");
+            facturaActual=instancia.buscar(numeroFactura);
         } catch (Errores errores) {
             errores.printStackTrace();
         }
@@ -77,7 +80,25 @@ public class FacturaAction extends ActionSupport {
         this.facturaActual = facturaActual;
     }
 
-    Factura facturaActual;
+
+
+    public String getNumeroFactura() {
+        return numeroFactura;
+    }
+
+    public void setNumeroFactura(String numeroFactura) {
+        this.numeroFactura = numeroFactura;
+    }
+
+
+
+    public Usuario getUsuarioActual() {
+        return usuarioActual;
+    }
+
+    public void setUsuarioActual(Usuario usuarioActual) {
+        this.usuarioActual = usuarioActual;
+    }
 
 
 }
