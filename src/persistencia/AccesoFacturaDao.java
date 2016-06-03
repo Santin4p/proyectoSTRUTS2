@@ -51,6 +51,7 @@ public class AccesoFacturaDao implements IAcceso<Factura> {
             ArrayList<Object> facturas = db.ejecutarConsulta(UtilSql.sqlBuscarId(Integer.valueOf(numero),Factura.class), Factura.class);
             if(!facturas.isEmpty()){
                 Factura factura = (Factura) facturas.get(0);
+                factura.ponerLineas(new ArrayList<>());
                 //Solo la devolvemos si es de este usuario
                 if(factura.getIdUsuario() == usuario.getCodigo()){
                     obtenerLineasFactura(db, factura);
