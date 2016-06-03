@@ -18,8 +18,6 @@ public class FacturaAction extends ActionSupport {
     Usuario usuarioActual;
     ArrayList<Factura> listaFacturas;
 
-
-
     public String generar(){
         usuarioActual=(Usuario) ActionContext.getContext().getSession().get("usuario");
         controlAccesoFacturaDao=new ControlAccesoFacturaDao(usuarioActual);
@@ -48,15 +46,17 @@ public class FacturaAction extends ActionSupport {
         return"verFactura";
     }
 
-    public String borrar(){
-        Usuario user=(Usuario)ActionContext.getContext().getSession().get("usuario");
-        ControlAccesoFacturaDao instancia=new ControlAccesoFacturaDao(user);
+    public String detalle(){
+        usuarioActual=(Usuario)ActionContext.getContext().getSession().get("usuario");
+        ControlAccesoFacturaDao instancia=new ControlAccesoFacturaDao(usuarioActual);
+
         try {
-            listaFacturas=instancia.obtener();
+            facturaActual=instancia.buscar("codigo");
         } catch (Errores errores) {
             errores.printStackTrace();
         }
-        return"verFactura";
+
+        return "detalleFactura";
     }
 
     public ArrayList<Factura> getListaFacturas() {
@@ -66,4 +66,18 @@ public class FacturaAction extends ActionSupport {
     public void setListaFacturas(ArrayList<Factura> listaFacturas) {
         this.listaFacturas = listaFacturas;
     }
+
+
+
+    public Factura getFacturaActual() {
+        return facturaActual;
+    }
+
+    public void setFacturaActual(Factura facturaActual) {
+        this.facturaActual = facturaActual;
+    }
+
+    Factura facturaActual;
+
+
 }
