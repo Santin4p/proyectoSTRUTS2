@@ -2,13 +2,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-
-<script>
-    $('#modificarLineaPedido').submit(function(event){$.getJSON('ajaxAction.action', {}, function(jsonResponse) {
-        console.info(jsonResponse);
-    }); event.preventDefault();})
-</script>
-
 <table class="table table-striped table-hover ">
     <thead>
     <tr class="active">
@@ -20,7 +13,7 @@
     <tbody>
         <s:iterator value="lineasCompra">
             <tr class="warning">
-                <s:form action="modificarLineaPedido" method="POST">
+                <s:form action="AjaxAction" method="POST" name="formularioCarro">
                     <s:hidden name="titulo" value="%{producto.titulo}"></s:hidden>
                     <td><s:label value="%{producto.titulo}"></s:label></td>
                     <td><s:textfield  type="number" name="cantidad" value="%{cantidad}"></s:textfield></td>

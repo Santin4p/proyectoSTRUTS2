@@ -1,5 +1,9 @@
 package struts;
 
+import com.opensymphony.xwork2.ActionContext;
+import comun.Errores;
+import negocio.Carro;
+import negocio.ControlAccesoLibroDao;
 import negocio.Libro;
 import negocio.LineaCompra;
 
@@ -11,19 +15,44 @@ import java.util.ArrayList;
 public class AjaxAction {
     private String nombre="santi";
     private ArrayList<LineaCompra> lineas = new ArrayList<>();
+    String titulo;
+    float cantidad;
+    ControlAccesoLibroDao controlAccesoLibroDao=new ControlAccesoLibroDao();
 
-    public ArrayList<LineaCompra> getLineas() {
-        return lineas;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setLineas(ArrayList<LineaCompra> lineas) {
-        this.lineas = lineas;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
     }
 
     public String execute(){
-        lineas.add(new LineaCompra(2, new Libro("titluo","Author","xxx", 4, false, false, false, "cxbvx", 3.4f)));
-        lineas.add(new LineaCompra(2, new Libro("titluo","Author","xxx", 4, false, false, false, "cxbvx", 3.4f)));
-        lineas.add(new LineaCompra(2, new Libro("titluo","Author","xxx", 4, false, false, false, "cxbvx", 3.4f)));
+        try {
+            Libro libro=controlAccesoLibroDao.buscar(titulo);
+            Carro carro= (Carro) ActionContext.getContext().getSession().get("carro");
+            ArrayList<LineaCompra>lineas= carro.getLineasCompras();
+            for (int i = 0; i < lineas.size(); i++) {
+                if(lineas.get(i).getProducto().getTitulo().equals(libro.getTitulo())){
+                    if (cantidad == 0) {
+                        lineas.remove(lineas.get(i));
+                    }else {
+                        lineas.get(i).setCantidad(cantidad);
+                    }
+                }
+            }
+        } catch (Errores errores) {
+            errores.printStackTrace();
+        }
+
         return "success";
     }
 
@@ -33,5 +62,13 @@ public class AjaxAction {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public ArrayList<LineaCompra> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(ArrayList<LineaCompra> lineas) {
+        this.lineas = lineas;
     }
 }

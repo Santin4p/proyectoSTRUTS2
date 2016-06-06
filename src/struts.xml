@@ -149,7 +149,7 @@
     </package>
 
     <package name="default" extends="json-default">
-        <action name="ajaxAction" class="struts.AjaxAction">
+        <action name="AjaxAction" class="struts.AjaxAction">
             <result type="json" name="success">
                 <param name="excludeNullProperties">true</param>
                 <param name="noCache">true</param>
