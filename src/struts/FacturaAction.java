@@ -52,7 +52,6 @@ public class FacturaAction extends ActionSupport {
     public String detalle(){
         usuarioActual=(Usuario)ActionContext.getContext().getSession().get("usuario");
         ControlAccesoFacturaDao instancia=new ControlAccesoFacturaDao(usuarioActual);
-
         try {
             facturaActual=instancia.buscar(numeroFactura);
         } catch (Errores errores) {

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class LineaPedidoAction extends ActionSupport {
     ControlAccesoLibroDao controlAccesoLibroDao=new ControlAccesoLibroDao();
     String titulo;
-    int cantidad;
+    float cantidad;
     Libro libroActual;
 
     public String add(){
@@ -45,8 +45,6 @@ public class LineaPedidoAction extends ActionSupport {
                     carro.setLineasCompras(lineas);
                     repetida=true;
                 }
-
-
             }
             if(!repetida) {
                 carro.anadirLinea(lineaCompra);
@@ -112,8 +110,8 @@ public class LineaPedidoAction extends ActionSupport {
 
     public String getTitulo() {return titulo;}
     public void setTitulo(String titulo) {this.titulo = titulo;}
-    public int getCantidad() {return cantidad;}
-    public void setCantidad(int cantidad) {this.cantidad = cantidad;}
+    public float getCantidad() {return cantidad;}
+    public void setCantidad(float cantidad) {this.cantidad = cantidad;}
     public Libro getLibroActual() {return libroActual;}
     public void setLibroActual(Libro libroActual) {this.libroActual = libroActual;}
 

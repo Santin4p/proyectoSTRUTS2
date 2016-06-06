@@ -119,6 +119,8 @@ public class Libro implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
+		if(obj == this) return true;
+		if(!(obj instanceof Libro)) return false;
 		Libro libro=(Libro) obj;
 		return libro.getTitulo().equals(titulo);
 	}

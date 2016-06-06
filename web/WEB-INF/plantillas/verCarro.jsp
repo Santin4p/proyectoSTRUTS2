@@ -3,6 +3,12 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 
+<script>
+    $('#modificarLineaPedido').submit(function(event){$.getJSON('ajaxAction.action', {}, function(jsonResponse) {
+        console.info(jsonResponse);
+    }); event.preventDefault();})
+</script>
+
 <table class="table table-striped table-hover ">
     <thead>
     <tr class="active">
